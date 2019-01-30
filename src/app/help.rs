@@ -7,14 +7,14 @@ use std::io::{self, Cursor, Read, Write};
 use std::usize;
 
 // Internal
-use app::parser::Parser;
-use app::usage;
-use app::{App, AppSettings};
-use args::{AnyArg, ArgSettings, DispOrder};
-use errors::{Error, Result as ClapResult};
-use fmt::{Colorizer, ColorizerOption, Format};
-use map::VecMap;
-use INTERNAL_ERROR_MSG;
+use crate::app::parser::Parser;
+use crate::app::usage;
+use crate::app::{App, AppSettings};
+use crate::args::{AnyArg, ArgSettings, DispOrder};
+use crate::errors::{Error, Result as ClapResult};
+use crate::fmt::{Colorizer, ColorizerOption, Format};
+use crate::map::VecMap;
+use crate::INTERNAL_ERROR_MSG;
 
 // Third Party
 #[cfg(feature = "wrap_help")]

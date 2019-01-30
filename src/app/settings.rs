@@ -4,6 +4,8 @@ use std::ascii::AsciiExt;
 use std::str::FromStr;
 use std::ops::BitOr;
 
+use bitflags::bitflags;
+
 bitflags! {
     struct Flags: u64 {
         const SC_NEGATE_REQS       = 1;

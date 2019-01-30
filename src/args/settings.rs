@@ -3,6 +3,8 @@
 use std::ascii::AsciiExt;
 use std::str::FromStr;
 
+use bitflags::bitflags;
+
 bitflags! {
     struct Flags: u32 {
         const REQUIRED         = 1;

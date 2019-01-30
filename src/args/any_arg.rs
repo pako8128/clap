@@ -4,9 +4,9 @@ use std::fmt as std_fmt;
 use std::ffi::{OsStr, OsString};
 
 // Internal
-use args::settings::ArgSettings;
-use map::{self, VecMap};
-use INTERNAL_ERROR_MSG;
+use crate::args::settings::ArgSettings;
+use crate::map::{self, VecMap};
+use crate::INTERNAL_ERROR_MSG;
 
 #[doc(hidden)]
 pub trait AnyArg<'n, 'e>: std_fmt::Display {
@@ -16,8 +16,8 @@ pub trait AnyArg<'n, 'e>: std_fmt::Display {
     fn requires(&self) -> Option<&[(Option<&'e str>, &'n str)]>;
     fn blacklist(&self) -> Option<&[&'e str]>;
     fn required_unless(&self) -> Option<&[&'e str]>;
-    fn is_set(&self, ArgSettings) -> bool;
-    fn set(&mut self, ArgSettings);
+    fn is_set(&self, _: ArgSettings) -> bool;
+    fn set(&mut self, _: ArgSettings);
     fn has_switch(&self) -> bool;
     fn max_vals(&self) -> Option<u64>;
     fn min_vals(&self) -> Option<u64>;

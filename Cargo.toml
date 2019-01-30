@@ -3,6 +3,7 @@
 name = "clap"
 version = "2.32.0"
 authors = ["Kevin K. <kbknapp@gmail.com>"]
+edition = "2018"
 exclude = ["examples/*", "clap-test/*", "tests/*", "benches/*", "*.png", "clap-perf/*", "*.dot"]
 repository = "https://github.com/clap-rs/clap"
 documentation = "https://docs.rs/clap/"
