@@ -71,7 +71,8 @@ fn quoted_app_name() {
     assert_eq!(app.p.meta.name, "app name with spaces-and-hyphens");
 
     let mut help_text = vec![];
-    app.write_help(&mut help_text).expect("Could not write help text.");
+    app.write_help(&mut help_text)
+        .expect("Could not write help text.");
     let help_text = String::from_utf8(help_text).expect("Help text is not valid utf-8");
     assert!(help_text.starts_with("app name with spaces-and-hyphens 0.1\n"));
 }
@@ -108,7 +109,8 @@ fn quoted_arg_long_name() {
             (@arg scpositional: index(1) "tests positionals"))
     );
 
-    let matches = app.get_matches_from_safe(vec!["bin_name", "value1", "value2", "--long-option-2"])
+    let matches = app
+        .get_matches_from_safe(vec!["bin_name", "value1", "value2", "--long-option-2"])
         .expect("Expected to successfully match the given args.");
     assert!(matches.is_present("option2"));
 }
@@ -145,7 +147,8 @@ fn quoted_arg_name() {
             (@arg scpositional: index(1) "tests positionals"))
     );
 
-    let matches = app.get_matches_from_safe(vec!["bin_name", "value1", "value2", "--long-option-2"])
+    let matches = app
+        .get_matches_from_safe(vec!["bin_name", "value1", "value2", "--long-option-2"])
         .expect("Expected to successfully match the given args.");
     assert!(matches.is_present("option2"));
 }
@@ -287,7 +290,7 @@ fn arg_enum() {
 
     // Tests for each pattern
     // meta  NO, pub  NO, trailing comma  NO
-    test_greek_no_meta!{
+    test_greek_no_meta! {
         arg_enum!{
             enum Greek {
                 Alpha,
@@ -296,7 +299,7 @@ fn arg_enum() {
         }
     };
     // meta  NO, pub  NO, trailing comma YES
-    test_greek_no_meta!{
+    test_greek_no_meta! {
         arg_enum!{
             enum Greek {
                 Alpha,
@@ -305,7 +308,7 @@ fn arg_enum() {
         }
     };
     // meta  NO, pub YES, trailing comma  NO
-    test_greek_no_meta!{
+    test_greek_no_meta! {
         arg_enum!{
             pub enum Greek {
                 Alpha,
@@ -314,7 +317,7 @@ fn arg_enum() {
         }
     };
     // meta  NO, pub YES, trailing comma YES
-    test_greek_no_meta!{
+    test_greek_no_meta! {
         arg_enum!{
             pub enum Greek {
                 Alpha,
@@ -323,7 +326,7 @@ fn arg_enum() {
         }
     };
     // meta YES, pub  NO, trailing comma  NO
-    test_greek_meta!{
+    test_greek_meta! {
         arg_enum!{
             #[derive(Debug, PartialEq, Copy, Clone)]
             enum Greek {
@@ -333,7 +336,7 @@ fn arg_enum() {
         }
     };
     // meta YES, pub  NO, trailing comma YES
-    test_greek_meta!{
+    test_greek_meta! {
         arg_enum!{
             #[derive(Debug, PartialEq, Copy, Clone)]
             enum Greek {
@@ -343,7 +346,7 @@ fn arg_enum() {
         }
     };
     // meta YES, pub YES, trailing comma  NO
-    test_greek_meta!{
+    test_greek_meta! {
         arg_enum!{
             #[derive(Debug, PartialEq, Copy, Clone)]
             pub enum Greek {
@@ -353,7 +356,7 @@ fn arg_enum() {
         }
     };
     // meta YES, pub YES, trailing comma YES
-    test_greek_meta!{
+    test_greek_meta! {
         arg_enum!{
             #[derive(Debug, PartialEq, Copy, Clone)]
             pub enum Greek {
